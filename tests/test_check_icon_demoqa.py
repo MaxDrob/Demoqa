@@ -1,14 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-
-def test_check_icon():
-    driver = webdriver.Chrome()
-    driver.get('https://demoqa.com/')
-
-    icon = driver.find_element(By.CSS_SELECTOR, '#app > header > a')
-
-    if icon is not None:
-        print('Found')
-    else:
-        print('Not found')
+from pages.demoqa import DemoQa
+import time
+def test_check_icon(browser):
+  demo_qa_page = DemoQa(browser)
+  demo_qa_page.visit()
+  time.sleep(3)
+  demo_qa_page.click_on_the_icon()
+  time.sleep(3)
+  assert demo_qa_page.equal_url()
+  assert demo_qa_page.exst_icon()
