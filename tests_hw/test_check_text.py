@@ -11,10 +11,10 @@ def test_footer_text(browser):
 
 
 def test_center_text_on_elements_page(browser):
-    demo_page = DemoQa(browser)
-    demo_page.visit()
+    text_page = DemoQa(browser)
+    text_page.visit()
 
-    demo_page.btn_elements.click()
+    text_page.btn_elements.click()
     elements_page = ElementsPage(browser)
 
     center_text = elements_page.center_text.get_text()
